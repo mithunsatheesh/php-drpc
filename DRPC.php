@@ -42,8 +42,7 @@ Class  DRPC {
 			$this->transport = new Thrift\Transport\TFramedTransport($this->socket);
 			
 			$this->drpcClient = new DistributedRPCClient(new Thrift\Protocol\TBinaryProtocol($this->transport));
-			
-			$this->transport->open();			
+							
 			
 		} catch (Exception $tx) {
 			
@@ -55,8 +54,11 @@ Class  DRPC {
 	}
 	
 	function execute($func,$params) {
-	
-		return $this->drpcClient->execute($func,$params);		
+		
+		$this->transport->open();
+		$result = $this->drpcClient->execute($func,$params);		
+		$this->transport->close();
+		return $result;
 		
 	}
 
