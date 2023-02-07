@@ -226,9 +226,6 @@ class TSocket extends TTransport {
                                   $this->sendTimeoutSec_ + ($this->sendTimeoutUsec_ / 1000000));
     }
 	
-	//timeout fix for thrift
-	stream_set_blocking($this->handle_,0);
-	
     // Connect failed?
     if ($this->handle_ === FALSE) {
       $error = 'TSocket: Could not connect to '.$this->host_.':'.$this->port_.' ('.$errstr.' ['.$errno.'])';
@@ -237,6 +234,9 @@ class TSocket extends TTransport {
       }
       throw new TException($error);
     }
+
+    //timeout fix for thrift
+    stream_set_blocking($this->handle_,0);
   }
 
   /**
