@@ -1,18 +1,5 @@
 <?php
 
-spl_autoload_register(
-    function ($classname) {
-        $filename = str_replace("\\", "/", "lib/" . $classname . ".php");
-
-        $filename =  dirname(__FILE__) . "/" . $filename;
-        if (file_exists($filename)) {
-            require_once($filename);
-        }
-    }
-);
-
-include_once(dirname(__FILE__)."/lib/DistributedRPC.php");
-
 Class  DRPC {
 
 	var $hostName;
