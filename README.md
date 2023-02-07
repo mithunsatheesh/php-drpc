@@ -3,14 +3,22 @@ php drpc client written on top of thrift library to connect to drpc topologies r
 
 ## How To Use
 
-just require the `DRPC.php` file in your project and create an instance of the drpc client like.
+The preferred method of installation is via [Composer](https://getcomposer.org/).
+Run the following command to install the package and add it as a requirement to your project's composer.json:
+
+```bash
+composer require mithunsatheesh/php-drpc
+```
+
+Create an instance of the drpc client to use:
 
 ```php
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
 
-include "includes/drpc/DRPC.php";
+// Instantiate the DRPC client.
 $drpc = new DRPC("xxx.xxx.x.xx",3772,NULL);
 $result = $drpc->execute("CallFunctionName",$params);
-
 ```
 
 ## Still not working?

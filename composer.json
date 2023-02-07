@@ -1,0 +1,16 @@
+{
+    "name": "mithunsatheesh/php-drpc",
+    "homepage": "https://github.com/mithunsatheesh/php-drpc",
+    "description": "Storm DRPC client for php.",
+    "type": "library",
+    "keywords": [
+        "storm",
+        "drpc"
+    ],
+    "require": {
+        "php": ">=5.0"
+    },
+    "autoload": {
+        "classmap": ["DRPC.php", "lib"]
+    }
+}
